@@ -2,7 +2,7 @@ import os
 import hashlib
 from datetime import datetime
 def get_file_hash(file_content):
-    """计算文件哈希值，现在md5已被破解，用sha256或者sha512更好但较慢"""
+    """计算文件哈希值，现在md5已被破解，生产勿用"""
     return hashlib.md5(file_content).hexdigest()
 
 def get_file_info(uploaded_file):
@@ -24,6 +24,6 @@ def format_file_size(size_bytes):
 
 def is_supported_file(filename):
     """检查文件格式"""
-    supported=['.pdf', '.docx', '.txt', '.md']
+    supported=['.pdf', '.docx', '.txt', '.md', '.csv', '.xlsx', '.xls']
     ext = os.path.splitext(filename)[1].lower()
     return ext in supported
